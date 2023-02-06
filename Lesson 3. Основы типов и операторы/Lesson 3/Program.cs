@@ -162,12 +162,12 @@ namespace Lesson_3
             int numberOperation = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Введите первое число:\n");
-            int numberOne = Convert.ToInt32(Console.ReadLine());
+            var numberOne = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Введите второе число:\n");
-            int numberTwo = Convert.ToInt32(Console.ReadLine());
+            var numberTwo = Convert.ToInt32(Console.ReadLine());
 
-            long resultOperation;
+            var resultOperation = 0;
 
             switch (numberOperation)
             {
@@ -201,8 +201,8 @@ namespace Lesson_3
                     Console.WriteLine($"Результат процента {numberOne} от числа {numberTwo} равен: {resultOperation}\n");
                     break;
                 case 6:
-                    int resultOperationNumberOne = (int)Math.Sqrt(numberOne);
-                    int resultOperationNumberTwo = (int)Math.Sqrt(numberTwo);
+                    var resultOperationNumberOne = Math.Sqrt(numberOne);
+                    var resultOperationNumberTwo = Math.Sqrt(numberTwo);
                     Console.WriteLine($"Результат квадратного корня числа {numberOne} равно: {resultOperationNumberOne}\n");
                     Console.WriteLine($"Результат квадратного корня числа {numberTwo} равно: {resultOperationNumberTwo}\n");
 
