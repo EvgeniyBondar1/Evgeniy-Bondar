@@ -46,14 +46,12 @@ namespace Lesson_4._Структуры_данных
 
             #region 4. Необходимо, чтобы программа выводила вот такую последовательность: 7 14 21 28 35 42 49 56 63 70 77 84 91 98 
 
-            int startNumberUser = 7;
             int count = 7;
             while (count <= 98)
             {
-                Console.Write(startNumberUser + " ");
+                Console.Write(count + " ");
                 Thread.Sleep(1000);
 
-                startNumberUser += 7;
                 count += 7;
             }
             Console.ReadKey();
