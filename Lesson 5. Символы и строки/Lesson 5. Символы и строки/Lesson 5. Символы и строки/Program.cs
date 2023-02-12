@@ -7,7 +7,30 @@ namespace Lesson_5._Символы_и_строки
         static void Main(string[] args)
         {
             #region 2. Дана строка произвольной длины с произвольными словами. Найти самое короткое слово в строке и вывести его на экран.
+            Console.Write("Введите строку с произвольными словами: ");
+            string nameString = Console.ReadLine();
 
+            //создаем массив слов, удаляя при этом знаки пунктуации
+            string[] str = nameString.Split(new Char[] { ' ', ',', '.', ':', '!', '?', ';' }, StringSplitOptions.RemoveEmptyEntries);
+            int maxlen = 0, index = 0, minlen = 0, index2 = 0; 
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (str[i].Length > maxlen)
+                {
+                    maxlen = str[i].Length;
+                    index = i;
+                }
+                if (str.Length < minlen)
+                {
+                    minlen = str[i].Length;
+                    index2 = i;
+                }
+            }
+            Console.Write("Самое длинное слово: {0}", str[index]);
+            Console.WriteLine();
+            Console.Write("Самое короткое слово:{0}", str[index2]);
+            Console.ReadLine();
+            
             #endregion
 
             #region 3. Дана строка произвольной длины с произвольными словами. Найти слово, в котором число различных символов минимально.
