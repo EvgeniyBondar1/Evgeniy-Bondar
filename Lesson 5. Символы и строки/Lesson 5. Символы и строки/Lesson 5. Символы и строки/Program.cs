@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography;
+using System.Collections;
 
 namespace Lesson_5._Символы_и_строки
 {
@@ -30,10 +31,27 @@ namespace Lesson_5._Символы_и_строки
             Console.WriteLine();
             Console.Write("Самое короткое слово:{0}", str[index2]);
             Console.ReadLine();
-            
+
             #endregion
 
             #region 3. Дана строка произвольной длины с произвольными словами. Найти слово, в котором число различных символов минимально.
+            string str = "fffff ab f 1234 jkjk";
+            string[] str2 = str.Split(new Char[] { ' ', ',', '.', ':', '!', '?', ';' }, StringSplitOptions.RemoveEmptyEntries);
+            string name1 = str2[0];
+            // не получается решить задачу
+            char firstChar = name1[1];
+            int count = 0;
+
+            for (int i = 0; i < name1.Length; i++)
+            {
+                for (int j = 1; j < name1.Length; j++)
+                {
+                    if (name1[i] == name1[j])
+                    {
+                        count++;
+                    }
+                }               
+            }
 
             #endregion
 
