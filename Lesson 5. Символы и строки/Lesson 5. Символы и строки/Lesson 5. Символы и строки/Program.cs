@@ -35,23 +35,16 @@ namespace Lesson_5._Символы_и_строки
             #endregion
 
             #region 3. Дана строка произвольной длины с произвольными словами. Найти слово, в котором число различных символов минимально.
-            string str = "fffff ab f 1234 jkjk";
-            string[] str2 = str.Split(new Char[] { ' ', ',', '.', ':', '!', '?', ';' }, StringSplitOptions.RemoveEmptyEntries);
-            string name1 = str2[0];
-            // не получается решить задачу
-            char firstChar = name1[1];
-            int count = 0;
+            string stringTaskThree = "abccc bhc3ndf aaaab erty err54rr k555";
+            string[] wordsTaskThree = stringTaskThree.Split(' ');
+            string firstShortestWord = wordsTaskThree[0];
 
-            for (int i = 0; i < name1.Length; i++)
+            for (int i = 1; i < wordsTaskThree.Length; i++)
             {
-                for (int j = 1; j < name1.Length; j++)
-                {
-                    if (name1[i] == name1[j])
-                    {
-                        count++;
-                    }
-                }               
+                if (wordsTaskThree[i].Distinct().Count() > firstShortestWord.Distinct().Count()) firstShortestWord = wordsTaskThree[i];
             }
+
+            Console.WriteLine(firstShortestWord);
 
             #endregion
 
