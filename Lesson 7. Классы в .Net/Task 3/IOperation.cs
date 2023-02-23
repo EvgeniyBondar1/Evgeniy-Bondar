@@ -6,22 +6,19 @@ using System.Threading.Tasks;
 
 namespace Task_3
 {
-    public class Operation
+    internal interface IOperation
     {
-        public virtual void depositMoney(int number)
+        public void depositMoney(int number)
         {
             Console.WriteLine("Внести наличные:");
         }
-        public virtual void withdrawMoney(int sum)
+        public void withdrawMoney(int sum)
         {
             Console.WriteLine("Снять наличные:");
         }
-        public virtual void showBalance(int number)
+        public void showBalance(int number)
         {
             Console.WriteLine("Показать баланс:");
         }
-
-      
-
     }
 }

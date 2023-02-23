@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Task_3
 {
-    public class Alfabank: Operation
+    public class Alfabank: IOperation
     {
         private readonly dynamic accountNumber = 5555666677778888;//номер счета
         private int invoiceAmount; //текущая сумма на счету 
@@ -74,15 +74,15 @@ namespace Task_3
                     break;
             }
         }
-        public override void depositMoney(int sum)
+        public void depositMoney(int sum)
         {
             Console.WriteLine($"Внесены {sum} рублей!");
         }
-        public override void withdrawMoney(int sum)
+        public void withdrawMoney(int sum)
         {
             Console.WriteLine($"Сняты {sum} рублей!");
         }
-        public override void showBalance(int invoiceAmount)
+        public void showBalance(int invoiceAmount)
         {
             Console.WriteLine($"Баланс вашей кредитной карты: {invoiceAmount}");
         }
