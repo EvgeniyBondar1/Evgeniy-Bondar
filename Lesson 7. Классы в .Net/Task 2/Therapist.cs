@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Task_2
 {
-    public class Therapist: IPlanTreatment
+    public class Therapist: PlanTreatment
     {
         public Therapist()
         {
             Console.WriteLine("Добрый день! Вам назначен терапевт: Олег Игоревич!");
         }
-        public void Treat()
+        public override void Treat()
         {
             Console.WriteLine("Терапевт Вас осмотрел, вылечил и назначил план реабилитации!\n");
         }

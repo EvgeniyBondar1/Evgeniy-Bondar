@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Task_2
 {
-    public interface IPlanTreatment
+    public class PlanTreatment
     {
-        public void Treat() 
+        public virtual void Treat() 
         {
             Console.WriteLine("Лечить пациента!");
         }
