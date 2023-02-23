@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Task_2
 {
-    public class Dentist: PlanTreatment
+    public class Dentist:IPlanTreatment
     {
         public Dentist()
         {
             Console.WriteLine("Добрый день! Вам назначен дантист: Дмитрий Игоревич!");
         }
-        public override void Treat() 
+        public void Treat() 
         {
             Console.WriteLine("Дантист Вас осмотрел, вылечил и назначил план реабилитации!\n");
         }
