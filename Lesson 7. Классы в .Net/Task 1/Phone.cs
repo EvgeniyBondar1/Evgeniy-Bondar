@@ -44,7 +44,7 @@ namespace Lesson_7._Классы_в_.Net
 
         //Пользовательский конструктор
         public Phone(int number, string model, int weight)
-            : this(355345, "Panasonic")
+            : this(number, model)
         {
             this.number = number;
             this.model = model;
@@ -57,38 +57,38 @@ namespace Lesson_7._Классы_в_.Net
         }
 
         //Перегрузка методов
-        public void receiveCall(string name)
+        public void ReceiveCall(string name)
         {
             Console.WriteLine($"Звонит: {name}!");
         }
-        public void receiveCall(string name, int number)
+        public void ReceiveCall(string name, int number)
         {
             Console.WriteLine($"Звонит: {name}, номер телефона: {number}");
         }
         //Возврат номера телефона
-        public int getNumber(int number)
+        public int GetNumber(int number)
         {
            return number;
         }
 
         //Отправка сообщений
-        public void sendMessage(int number)
+        public void SendMessage(int number)
         {
             switch (number)
             {
                 case 452345:
                     {
-                        processingSendMessage(452345);
+                        ProcessingSendMessage(452345);
                         break;
                     }
                 case 461540:
                     {
-                        processingSendMessage(461540);
+                        ProcessingSendMessage(461540);
                         break;
                     }
                 case 478895:
                     {
-                        processingSendMessage(478895);
+                        ProcessingSendMessage(478895);
                         break;
                     }
                 default:
@@ -97,7 +97,7 @@ namespace Lesson_7._Классы_в_.Net
         }
 
         //Обработка отправки сообщений (инкапсуляция)
-        private void processingSendMessage(int number)
+        private void ProcessingSendMessage(int number)
         {
             Console.WriteLine($"На номер: {number}, будет отправлено сообщение!\n");
         }

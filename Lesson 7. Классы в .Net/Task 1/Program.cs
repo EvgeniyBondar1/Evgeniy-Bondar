@@ -10,28 +10,28 @@
             Phone phone2 = new Phone(461540, "Iphone 6", 200);
             Phone phone3 = new Phone(478895, "Iphone 7", 300);
            
-            phone1.receiveCall("Роберт Мартин");
-            phone1.receiveCall("Роберт Мартин", 452345);
-            phone1.sendMessage(phone1.Number);
-            int getNumber1 = phone1.getNumber(452345);
+            phone1.ReceiveCall("Роберт Мартин");
+            phone1.ReceiveCall("Роберт Мартин", 452345);
+            phone1.SendMessage(phone1.Number);
+            int getNumber1 = phone1.GetNumber(452345);
            
             phone1.Number = 452345;
             phone1.Model = "Iphone 5";
             phone1.Weight = 100;
            
-            phone2.receiveCall("Троелсен Эндрю, Джепикс Филипп");
-            phone2.receiveCall("Троелсен Эндрю, Джепикс Филипп", 461540);
-            phone2.sendMessage(phone2.Number);
-            int getNumber2 = phone2.getNumber(461540);
+            phone2.ReceiveCall("Троелсен Эндрю, Джепикс Филипп");
+            phone2.ReceiveCall("Троелсен Эндрю, Джепикс Филипп", 461540);
+            phone2.SendMessage(phone2.Number);
+            int getNumber2 = phone2.GetNumber(461540);
             
             phone2.Number = 461540;
             phone2.Model = "Iphone 6";
             phone2.Weight = 200;
 
-            phone3.receiveCall("Рихтер Джеффри");
-            phone3.receiveCall("Рихтер Джеффри", 478895);
-            phone3.sendMessage(phone3.Number);
-            int getNumber3 = phone3.getNumber(478895);
+            phone3.ReceiveCall("Рихтер Джеффри");
+            phone3.ReceiveCall("Рихтер Джеффри", 478895);
+            phone3.SendMessage(phone3.Number);
+            int getNumber3 = phone3.GetNumber(478895);
             
             phone3.Number = 478895;
             phone3.Model = "Iphone 7";
