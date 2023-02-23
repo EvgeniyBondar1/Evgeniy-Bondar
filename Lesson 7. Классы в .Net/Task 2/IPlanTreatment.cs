@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace Task_2
 {
-    public class PlanTreatment
+    internal interface IPlanTreatment
     {
-        public virtual void Treat() 
+        public void Treat() 
         {
-            Console.WriteLine("Лечить пациента!");
+            Console.WriteLine("Лечить!");
+        
         }
     }
 }
