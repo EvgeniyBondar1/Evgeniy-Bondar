@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace Task_4
 {
-    class Square : Rectangle
+    class Square : Figure
     {
-        public double length { get; set; }
-        public Square() : this(1) { }
-        public Square(uint length) : base(length, length)
+        public double Length { get; set; }
+        public Square(uint length) 
         {
-
+            this.Length = length;
         }
         public override double P() => 4 * Length;
         public override double S() => 2 * Length;
