@@ -8,10 +8,10 @@ namespace Task_5
 {
     public class ContractGoods : Registr, IDocument
     {
-        private int NumberDocument { get; set; }
-        private string ProductType { get; set; }
-        private int Product { get; set; }
-        private DateTime DateTime { get; set; }
+        public int NumberDocument { get; set; }
+        public string ProductType { get; set; }
+        public int Product { get; set; }
+        public DateTime DateTime { get; set; }
 
         public ContractGoods()
         {
@@ -27,6 +27,10 @@ namespace Task_5
         public void InformationDocument() 
         {
             Console.WriteLine($"Информация о контракте на поставку товаров:\nНомер документа: {NumberDocument},\nТип товара: {ProductType},\nКоличество товаров: {Product},\nДата документа: {DateTime}\n");
+        }
+        public void SaveDocumentInRegistr()
+        {
+
         }
 
     }

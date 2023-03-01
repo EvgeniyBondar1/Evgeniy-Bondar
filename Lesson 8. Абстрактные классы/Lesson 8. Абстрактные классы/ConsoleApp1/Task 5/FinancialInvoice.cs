@@ -8,10 +8,10 @@ namespace Task_5
 {
     public class FinancialInvoice : Registr, IDocument
     {
-        private decimal SumResult { get; set; }
-        private DateTime DateTimeDocument { get; set; }
-        private int NumberDocument { get; set; }
-        private int CodeDepartament { get; set; }
+        public decimal SumResult { get; set; }
+        public DateTime DateTimeDocument { get; set; }
+        public int NumberDocument { get; set; }
+        public int CodeDepartament { get; set; }
 
         public FinancialInvoice()
         {
@@ -28,6 +28,10 @@ namespace Task_5
         public void InformationDocument() 
         {
             Console.WriteLine($"Информация о финансовой накладной:\nИтоговая сумма за месяц: {SumResult},\nДата документа: {DateTimeDocument},\nНомер документа: {NumberDocument},\nКод департамента: {CodeDepartament}\n");
+        }
+        public void SaveDocumentInRegistr()
+        {
+
         }
     }
 }

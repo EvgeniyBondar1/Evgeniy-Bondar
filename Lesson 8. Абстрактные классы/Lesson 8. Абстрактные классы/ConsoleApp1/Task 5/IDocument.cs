@@ -8,13 +8,7 @@ namespace Task_5
 {
     public interface IDocument
     {
-        public void SaveDocumentInRegistr()
-        {
-
-        }
-        public void InformationDocument() 
-        {
-            
-        }
+        public void SaveDocumentInRegistr();
+        public void InformationDocument();
     }
 }

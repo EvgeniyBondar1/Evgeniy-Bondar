@@ -9,10 +9,10 @@ namespace Task_5
 {
     public class ContractEmployee : Registr, IDocument
     {
-        private int NumberDocument { get; set; }
-        private DateTime DateTime { get; set; }
-        private DateTime DateTimeFinischContract { get; set; }
-        private string NameEmployee { get; set; }
+        public int NumberDocument { get; set; }
+        public DateTime DateTime { get; set; }
+        public DateTime DateTimeFinischContract { get; set; }
+        public string NameEmployee { get; set; }
 
         public ContractEmployee()
         {
@@ -29,6 +29,10 @@ namespace Task_5
         public void InformationDocument() 
         {
             Console.WriteLine($"Информация о контракте с сотрудником:\nНомер документа: {NumberDocument},\nДата документа: {DateTime},\nДата окончания контракта: {DateTimeFinischContract},\nИмя сотрудника: {NameEmployee}\n");
+        }
+        public void SaveDocumentInRegistr()
+        { 
+        
         }
     }
 }

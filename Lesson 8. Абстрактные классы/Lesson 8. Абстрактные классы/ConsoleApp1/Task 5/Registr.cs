@@ -13,11 +13,6 @@ namespace Task_5
        
         public Object[] documents = new Object[10];
 
-        //public Registr()
-        //{
-        //    int number;
-        //}
-
         public void SaveDocumentInRegistr(Object newDoc) 
         {
             documents[Number] = newDoc;
