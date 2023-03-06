@@ -14,14 +14,12 @@ namespace Lesson_10._Обработка_исключений
             {
                 for (int i = 0; i < login.Length; i++)
                 {
-                    string name = "";
-                    //TODO: доделать условие
-                    bool flag = login[0] == (string)name ? true : false;
-                }
-                if ((login.Length < 20) && !string.IsNullOrWhiteSpace(login))
-                {
-
-                    throw new WrongLoginException();
+                    //TODO: оптимизировать
+                    char probel = ' ';
+                    if (login[i] == probel || (login.Length > 20))
+                    {
+                        throw new WrongLoginException();
+                    }
                 }
             }
             catch (WrongLoginException ex1)
@@ -31,11 +29,32 @@ namespace Lesson_10._Обработка_исключений
 
             try
             {
+                /** 
+                 * Проверка password на наличие цифр (0-9)
+                 */ 
+                 var isCheckNumber = false;
+                 char probel = ' ';
 
-                //TODO: доделать условие
-                if (password.Length < 20 && (password == confirmPassword))
+                foreach (char c in password)
+                    {
+                        if (c < '0' || c > '9')
+                        {
+                           isCheckNumber =  true;
+                        }   
+                    }
+                /** 
+                * Проверка password на наличие цифр (0-9)
+                * - длина password меньше 20
+                * - не содержит пробелы
+                * - должна содержать одну цифру
+                * - password и confirmPassword
+                */
+                for (int i = 0; i < password.Length; i++)
                 {
-                    throw new WrongPasswordException();
+                    if (password[i] == probel || password.Length > 20 || password != confirmPassword || !isCheckNumber)
+                    {
+                        throw new WrongPasswordException();
+                    }
                 }
             }
             catch (WrongPasswordException ex2)
