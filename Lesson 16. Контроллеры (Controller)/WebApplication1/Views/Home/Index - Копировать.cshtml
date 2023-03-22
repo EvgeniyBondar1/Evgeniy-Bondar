@@ -1,0 +1,49 @@
+﻿@{
+    //ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+@*Задание 1*@
+    @{
+        var number1 = 140;
+        var number2 = 160;
+        var result = number1 + number2;
+        <div>@result</div>
+    }
+
+    @(number1+number2)
+
+@*Задание 2*@
+    @{
+        string[] auto = {"Audi","BMW","KIA","Aurus","Toyota"};
+           <ul>
+
+                @for (int i = 0; i < auto.Length; i++)
+            {
+                 <li>@auto[i]</li>
+            }
+           </ul>
+           <ul>
+                @foreach (var item in auto)
+            {
+                    <li>@item</li>
+            }       
+           </ul>
+    }
+@*Задание 3*@
+@functions
+{
+   //public int Sum(int a, int b, int c, int d) => a * b * c * d;
+}
+<p><div>@Sum(5,4,6,7)</div></p>
+
+@*Задание 4*@
+
+
+
+
+ 
+</div>
