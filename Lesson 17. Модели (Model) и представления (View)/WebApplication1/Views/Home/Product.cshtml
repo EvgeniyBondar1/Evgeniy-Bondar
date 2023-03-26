@@ -1,0 +1,42 @@
+﻿@model ProductViewModel[]
+
+<h2>Product Report</h2>
+
+<table class="table">  
+    <tr>
+         <td>Id</td>
+         <td>NameProduct</td>
+         <td>Category</td>
+         <td>Price</td>
+         <td>Count</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+           <td>@item.Id</td>
+           <td>@item.NameProduct</td>
+           <td>@item.Category</td>
+           <td>@item.Price</td>
+           <td>@item.Count</td>
+        </tr>
+    }
+</table>
+
+<style>
+    table {
+    width: 100%; /* Ширина таблицы */
+    background: white; /* Цвет фона таблицы */
+    border-spacing: 1px; /* Расстояние между ячейками */
+   }
+   td {
+    padding: 3px; /* Поля вокруг содержимого таблицы */
+    border: 1px solid black; /* Параметры рамки */
+   }
+
+</style>
+
+
+
+  
+    
+ 

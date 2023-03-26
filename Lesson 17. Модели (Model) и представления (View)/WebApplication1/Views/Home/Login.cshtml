@@ -1,0 +1,18 @@
+﻿@model LoginViewModel
+
+@using (Html.BeginForm("Login","Home", FormMethod.Post))
+{
+        <p >
+        @Html.LabelFor(m =>m.UserName, "UserName")<br/>
+        @Html.TextBoxFor(m => m.UserName," ", new {type = "UserName"})<br/>
+        </p>
+        <p >
+        @Html.LabelFor(m => m.Password, "Password")<br/>
+        @Html.TextBoxFor(m => m.Password, " ", new {type = "Password"})<br/>
+        </p>
+        <p>
+             <input type="submit" value="Отправить"/>
+        </p>
+
+}
+
