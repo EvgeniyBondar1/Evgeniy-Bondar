@@ -19,7 +19,7 @@ INSERT Player VALUES(456456653,'Олег','Сидоров','Олегович',1400000,4, 100);
 INSERT Player VALUES(345436777,'Иван','Бадминтонов','Петрович',4500000,6, 101);
 INSERT Player VALUES(342343433,'Игорь','Футболеров','Дмитриев',2600000,5, 102);
 INSERT Player VALUES(346366444,'Николай','Казак','Олегович',9300000, 7, 100);
---DROP TABLE Player
+DROP TABLE Player
 
 --Таблица: Команда
 CREATE TABLE Team
@@ -27,8 +27,8 @@ CREATE TABLE Team
   Id INT PRIMARY KEY,
   Name NVARCHAR(50) NOT NULL,
   Price MONEY,
-  TrenerId INT,
-  FOREIGN KEY (TrenerId) REFERENCES Trener(Id)
+  CoachId INT,
+  FOREIGN KEY (CoachId) REFERENCES Coach(Id)
 );
 INSERT Team VALUES (1, 'ФК Балтика', 1000000, 7);
 INSERT Team VALUES (2, 'ФК Краснодар', 4000000, 7);
@@ -41,21 +41,21 @@ INSERT Team VALUES (8, 'ФК Ростов', 15677000, 5);
 DROP TABLE Team
 
 --Таблица: Тренер
-CREATE TABLE Trener
+CREATE TABLE Coach
 (
   Id INT PRIMARY KEY,
-  Trener NVARCHAR(50) NOT NULL,
+  Coach NVARCHAR(50) NOT NULL,
   Age INT NOT NULL,
   Rating INT NOT NULL
 );
-INSERT Trener VALUES (1, 'Семенов Е.И.', 40, 70);
-INSERT Trener VALUES (2, 'Петров И.Л.', 50, 99);
-INSERT Trener VALUES (3, 'Иванов И.П.', 60, 80);
-INSERT Trener VALUES (4, 'Сидоров П.И.', 55, 76);
-INSERT Trener VALUES (5, 'Бондарь С.М.', 44, 74);
-INSERT Trener VALUES (6, 'Харламов К.А.', 66, 34);
-INSERT Trener VALUES (7, 'Харитонов А.В.', 77, 78);
-DROP TABLE Trener
+INSERT Coach VALUES (1, 'Семенов Е.И.', 40, 70);
+INSERT Coach VALUES (2, 'Петров И.Л.', 50, 99);
+INSERT Coach VALUES (3, 'Иванов И.П.', 60, 80);
+INSERT Coach VALUES (4, 'Сидоров П.И.', 55, 76);
+INSERT Coach VALUES (5, 'Бондарь С.М.', 44, 74);
+INSERT Coach VALUES (6, 'Харламов К.А.', 66, 34);
+INSERT Coach VALUES (7, 'Харитонов А.В.', 77, 78);
+DROP TABLE Coach
 
 --Таблица: Группы
 CREATE Table Groups
