@@ -1,0 +1,43 @@
+﻿.topblock .icons {
+    vertical-align: text-top;
+}
+.slider-prev, .vitrina-prev {
+    right: 52px;
+}
+.vitrina-prev, .vitrina-next, .slider-prev, .slider-next {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 28px;
+    height: 28px;
+    border-radius: 14px;
+    background-color: #ecf0f3;
+    background-size: 10px;
+    user-select: none;
+}
+.icon-left {
+    background-image: https://otzovik.com/static/img/2018/icons/angle_right.svg);
+}
+.icons {
+    display: inline-block;
+    vertical-align: text-bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 16px;
+    height: 16px;
+}
+a, .a {
+    cursor: pointer;
+    color: #13709b;
+    text-decoration: none;
+}
+* {
+    font-size: 100%;
+    margin: 0;
+}
+.home-box {
+    margin-bottom: 20px;
+    line-height: 150%;
+}
+

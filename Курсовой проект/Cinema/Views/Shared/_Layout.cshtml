@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Cinema</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/favicon.ico" asp-append-version="true" />
+    <link rel="stylesheet" href="~/images/Снимок1.PNG" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Cinema.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Отзывы</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Help">Помощь</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Поиск фильмов</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Войти/</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Registration">Зарегистрироваться</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="header-main-row">
+            <div class="header-main">
+                <div class="header-logo" style="background-image: url(/static/img/2023/logos/logo_default.svg);">
+                    <a href="/"></a>
+                </div>
+                <form class="header-search-form" method="GET" action="/">
+                    <div class="header-search-form-block">
+                        <input type="text" id="header-search-input" class="header-search-input input2023" autocomplete="off" name="search_text" placeholder="Пример: Отдых на острове Маврикий" value>
+                        <input type="image" class="header-search-btn button2023 button-blue" src="/static/img/1px.gif" alt="Поиск">
+                    </div>
+                    <div class="pi-popup glory-box decor-n prod-popup" style="display: none;"></div>
+                </form>
+                <a class="header-promo-btn button2023" href="/promo/">
+                    <span>Промоакции</span>
+                    <span class="counter">5</span>
+                    <span class="icons2023 icon-gift2"></span>
+                </a>
+                <a class="header-postreview-btn button2023 button-blue" href="/postreview.php">
+                    <svg>
+                        <use href="/static/img/2023/icons/icons.png#write"></use>
+                    </svg>
+                    <span>Написать отзыв</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - Отзовик - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
