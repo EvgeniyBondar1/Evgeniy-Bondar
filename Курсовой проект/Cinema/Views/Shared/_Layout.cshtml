@@ -37,7 +37,10 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">Войти/</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Registration">Зарегистрироваться</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Registration">Зарегистрироваться</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Comment" asp-action="Feedback"></a>
                         </li>
                     </ul>
                 </div>
@@ -60,12 +63,11 @@
                     <span class="counter">5</span>
                     <span class="icons2023 icon-gift2"></span>
                 </a>
-                <a class="header-postreview-btn button2023 button-blue" href="/postreview.php">
-                    <svg>
-                        <use href="/static/img/2023/icons/icons.png#write"></use>
-                    </svg>
-                    <span>Написать отзыв</span>
-                </a>
+                <div class="header-postreview-btn button2023 button-blue">
+                    <a asp-action="Feedback" asp-controller="Comment">
+                        <input type="submit" value="Написать отзыв" class="submit-feedback"/>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
@@ -88,4 +90,5 @@
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>

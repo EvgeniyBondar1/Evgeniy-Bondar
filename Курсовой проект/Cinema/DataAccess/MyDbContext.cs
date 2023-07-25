@@ -54,7 +54,7 @@ namespace Cinema.DataAccess
             modelBuilder.Entity<Account>().HasData(
                 new Account
                 {
-                   // Id = Guid.NewGuid(),
+                    Id = Guid.NewGuid(),
                     Email = "Bondar.EI.ru",
                     PasswordHash = "Password",
                     FirstName = "Bondar Evgeniy Igorevich",

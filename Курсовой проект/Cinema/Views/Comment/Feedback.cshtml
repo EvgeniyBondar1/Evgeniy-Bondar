@@ -1,0 +1,147 @@
+﻿@model Cinema.DataAccess.Entity.Comment 
+@{
+   Layout = null;
+}
+
+<!doctype html>
+<html>
+    
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Вход для фидбека</title>
+    @await Html.PartialAsync("CssPartial")
+    <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/style2.css" asp-append-version="true" />
+</head>
+<body>
+    <div id="content" class="main_content content">
+        <style>
+            
+    #ywwr {
+        margin-bottom: 8px;
+    }
+    #ywwr td {
+        padding: 6px 6px 6px 0;
+        vertical-align: middle;
+    }
+    #form-switches {
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+    #form-switches button {
+        height: auto;
+        line-height: normal;
+        padding: 6px 8px;
+        font-size: 11px;
+    }
+    #preview_review {
+        margin-top: 24px;
+    }
+
+        </style>
+        <h1 id="h11">Написать отзыв</h1>
+        <div id="rinfo" class="content-right">
+            <div>
+                "Не пишите в поле"
+                <b>Ваше общее впечатление</b>
+                 название объекта отзыва, т.к. оно автоматически добавляется при просмотре Вашего отзыва. 
+                 <div class="toggle-content">
+                     <br>
+                     <b>Не копируйте в отзыв текст и фото с других сайтов</b>
+                     , а также не вставляйте ссылки на другие сайты. За это модератор может серьезно наказать в соответствии с правилами сайта.
+                 </br>
+                 <br>
+                     Если Вы вставляете ссылки на свои отзывы, то они должны быть уместны и не вводить в заблуждение читателя (он должен четко понимать куда ведет ссылка).
+                 </br>
+                 <br>
+                     Кроме того, в некоторых разделах наложены ограничения на добавление фото.
+                 </br>
+                 </div>
+                 <span class="a rinfo-read decor-u2n">
+                     <label class="toggle-label" for="rinfo-checkbox">
+                         Читать дальше
+                         <span class="icons icon-down"></span>
+                     </label>
+                 </span>
+            </div>
+        </div>
+        <div id="review_editor" class="content-left review_form  review_form_advance review_form_anonym">
+            <div id="review_form">
+                <form id="formmain" action="https://otzovik.com/postreview.php" method="post" enctype="multipart/form-data" vautocomplete="off"></form>
+                <input type="hidden" name="pr_form" value="1">
+                <input type="hidden" name="ut" value="1689686993">
+                <div id="review_post">
+                    <div class="field-block nec">
+                        <div class="field-caption">
+                            Ваше общее впечатление в двух словах: 
+                            <span>(от 1 до 15 слов)</span>
+                        </div>
+                        <div class="field-body">
+                            <input id="content_title" type="text" name="content_title" class="box-width"></input>
+                        </div>
+                        <div id="e_title_msg" class="field-error-msg"></div>
+                    </div>
+                    <div id="content_body_main" class="field-block nec">
+                        <div class="field-caption">
+                            Текст отзыва: 
+                            <span>(20 слов минимум)</span>
+                        </div>
+                        <div class="field-body">
+                            <div id="e_body_msg" class="field-error-msg"></div>
+                            <div class="editor-content">
+                                <div class="text_area_auto_height empty">
+                                    <textarea class="text_area_auto_height_hidden"></textarea>
+                                    <textarea class="text_area_auto_height_ta" style="height: 26px;"></textarea>
+                                </div>
+                            </div>
+                            <textarea id="content_body" name="content_body" style="display: none;"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="filters-caption ratings-title-block field_form_advance rating_advance">
+                                Поставьте оценки:                
+        </div>
+        <table class="ratings-block">
+            <tbody>
+                <tr class="field-block nec rating-block  field_form_advance">
+                    <td>
+                        <div class="field-caption">
+                            Сюжет:
+                        </div>
+                    </td>
+                    <td>
+                        <div class="select-wrap small">
+                            <select id="rating1" name="rating1">
+                                <option value="0" default selected>Оценить:</option>
+                                <option value="1">1 - Ужасно:</option>
+                                <option value="2">2 - Плохо:</option>
+                                <option value="3">3 - Средне:</option>
+                                <option value="4">4 - Хорошо:</option>
+                                <option value="5">5 - Отлично:</option>
+                            </select>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="rating star00" data-name="rating1">
+                            <div class="star" data-value="1" title="Ужасно"></div>
+                            <div class="star" data-value="2" title="Плохо"></div>
+                            <div class="star" data-value="3" title="Средне"></div>
+                            <div class="star" data-value="4" title="Хорошо"></div>
+                            <div class="star" data-value="5" title="Отлично"></div>
+                        </div>
+                    </td>
+                    <td>
+                        <div id="e_rating1_msg" class="class="field-error-msg"></div>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+</body>
+</html>
+

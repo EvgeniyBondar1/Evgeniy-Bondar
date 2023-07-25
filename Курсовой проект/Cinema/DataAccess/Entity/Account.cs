@@ -1,10 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
 namespace Cinema.DataAccess.Entity
 {
-    [Keyless]
-    public class Account
+    public class Account : IdentityUser
     {
         //GUID (Globally Unique Identifier) и ID (Identifier) - это оба способа идентификации объектов, но они имеют несколько отличий.
         //GUID - это уникальный идентификатор, который генерируется компьютером и используется для идентификации объектов в распределенной системе.
@@ -16,7 +16,7 @@ namespace Cinema.DataAccess.Entity
         //который используется для уникальной идентификации объекта. ID обычно является сгенерированным значением,
         //которое может быть автоматически создано базой данных при вставке новой записи.
 
-        // public Guid Id { get; set; }
+        public Guid Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Phone { get; set; }
@@ -27,7 +27,6 @@ namespace Cinema.DataAccess.Entity
         public string Email { get; set; }
 
         [MaxLength(85)]
-
         [Required(ErrorMessage = "Не указан пароль")]
         [UIHint("Password")]
         [Display(Name = "Пароль")]
@@ -38,9 +37,9 @@ namespace Cinema.DataAccess.Entity
         public Role Role { get; set; }
         public int RoleId { get; set; }
 
-        public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Comment>? Comments { get; set; }
 
-        public virtual ICollection<Rating> Ratings { get; set; }
+        public virtual ICollection<Rating>? Ratings { get; set; }
         
         //Свойство public virtual ICollection<T> { get; set; } внутри сущностей Entity Framework представляет навигационное свойство, которое используется
         //для описания отношений между сущностями в базе данных.

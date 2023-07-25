@@ -4,6 +4,8 @@ using Cinema.DataAccess.DbPatterns.Interfaces;
 using Cinema.DataAccess.Entity;
 using Cinema.Services.Interface;
 using Cinema.Services.Service;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Cinema
@@ -31,7 +33,15 @@ namespace Cinema
             builder.Services.AddTransient<IRoleService, RoleService>();
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-
+            builder.Services.AddIdentity<Account, IdentityRole>(options =>
+            {
+                options.Password.RequiredLength = 5;   // минимальная длина
+                options.Password.RequireNonAlphanumeric = false;   // требуются ли не алфавитно-цифровые символы
+                options.Password.RequireLowercase = false; // требуются ли символы в нижнем регистре
+                options.Password.RequireUppercase = false; // требуются ли символы в верхнем регистре
+                options.Password.RequireDigit = false; // требуются ли цифры
+            }).AddEntityFrameworkStores<Providers.Database.EFProvider.DataContext>()
+    .AddDefaultTokenProviders();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -57,6 +67,7 @@ namespace Cinema
                 pattern: "{controller=Home}/{action=Privacy}/{id?}");
 
             app.Run();
+
         }
     }
 }
