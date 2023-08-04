@@ -27,7 +27,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Help">Помощь</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Поиск фильмов</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Search">Поиск фильмов</a>
                         </li>
                     </ul>
                 </div>
@@ -51,12 +51,14 @@
                 <div class="header-logo" style="background-image: url(/static/img/2023/logos/logo_default.svg);">
                     <a href="/"></a>
                 </div>
-                <form class="header-search-form" method="GET" action="/">
-                    <div class="header-search-form-block">
-                        <input type="text" id="header-search-input" class="header-search-input input2023" autocomplete="off" name="search_text" placeholder="Пример: Отдых на острове Маврикий" value>
-                        <input type="image" class="header-search-btn button2023 button-blue" src="/static/img/1px.gif" alt="Поиск">
-                    </div>
+                <form asp-action="Search" class="header-search-form"> @*Указываем Имя контроллера/Имя метода*@
+                     <a asp-action="Search" asp-controller="Home"> @*asp-action: указывает на метод (действие) в контроллере,  asp-controller: указывает на контроллер, которому предназначен запрос*@     
+                       <div class="header-search-form-block">
+                          <input type="text" id="header-search-input" class="header-search-input input2023" autocomplete="off" name="search_text" placeholder="Пример: Отдых на острове Маврикий" value>
+                           <input type="submit" class="header-search-btn button2023 button-blue" src="/static/img/1px.gif" value="">@*Добавление кнопки*@
+                       </div>
                     <div class="pi-popup glory-box decor-n prod-popup" style="display: none;"></div>
+                    </a>
                 </form>
                 <a class="header-promo-btn button2023" href="/promo/">
                     <span>Промоакции</span>

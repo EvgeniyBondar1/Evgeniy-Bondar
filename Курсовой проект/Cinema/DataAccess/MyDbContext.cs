@@ -57,10 +57,11 @@ namespace Cinema.DataAccess
                     Id = Guid.NewGuid(),
                     Email = "Bondar.EI.ru",
                     PasswordHash = "Password",
-                    FirstName = "Bondar Evgeniy Igorevich",
-                    //PhoneNumber = "+796217215537",
-                    //Filebase64 = Encoding.UTF8.GetBytes(DEFAULT_AVATAR_BASE64),
-                    //RoleId = 1
+                    FullName = "Bondar Evgeniy Igorevich",
+                    LastName = "Bondar Evgeniy Igorevich",
+                    Phone = "+796217215537",
+                    Filebase64 = Encoding.UTF8.GetBytes(DEFAULT_AVATAR_BASE64),
+                    RoleId = 1
                 });
         #endregion
 

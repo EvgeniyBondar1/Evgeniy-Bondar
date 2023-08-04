@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Cinema.DataAccess.Entity
 {
-    public class Account : IdentityUser
+    public class Account
     {
         //GUID (Globally Unique Identifier) и ID (Identifier) - это оба способа идентификации объектов, но они имеют несколько отличий.
         //GUID - это уникальный идентификатор, который генерируется компьютером и используется для идентификации объектов в распределенной системе.
@@ -17,7 +17,7 @@ namespace Cinema.DataAccess.Entity
         //которое может быть автоматически создано базой данных при вставке новой записи.
 
         public Guid Id { get; set; }
-        public string FirstName { get; set; }
+        public string FullName { get; set; }
         public string LastName { get; set; }
         public string Phone { get; set; }
 

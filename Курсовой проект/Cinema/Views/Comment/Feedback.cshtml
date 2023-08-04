@@ -70,34 +70,6 @@
                 <form id="formmain" action="https://otzovik.com/postreview.php" method="post" enctype="multipart/form-data" vautocomplete="off"></form>
                 <input type="hidden" name="pr_form" value="1">
                 <input type="hidden" name="ut" value="1689686993">
-                <div id="review_post">
-                    <div class="field-block nec">
-                        <div class="field-caption">
-                            Ваше общее впечатление в двух словах: 
-                            <span>(от 1 до 15 слов)</span>
-                        </div>
-                        <div class="field-body">
-                            <input id="content_title" type="text" name="content_title" class="box-width"></input>
-                        </div>
-                        <div id="e_title_msg" class="field-error-msg"></div>
-                    </div>
-                    <div id="content_body_main" class="field-block nec">
-                        <div class="field-caption">
-                            Текст отзыва: 
-                            <span>(20 слов минимум)</span>
-                        </div>
-                        <div class="field-body">
-                            <div id="e_body_msg" class="field-error-msg"></div>
-                            <div class="editor-content">
-                                <div class="text_area_auto_height empty">
-                                    <textarea class="text_area_auto_height_hidden"></textarea>
-                                    <textarea class="text_area_auto_height_ta" style="height: 26px;"></textarea>
-                                </div>
-                            </div>
-                            <textarea id="content_body" name="content_body" style="display: none;"></textarea>
-                        </div>
-                    </div>
-                </div>
             </div>
 
         </div>
@@ -140,6 +112,31 @@
             </tbody>
 
         </table>
+        <div class="field-caption">
+             <form asp-action="Feedback">
+                    <div class="field-caption">
+                        <label asp-for="Film">Выберите фильм</label>
+                        <span asp-validation-for="Film"></span>
+                         <select name="Id">
+                                <option value="0" default selected></option>
+                                <option value="50DBBFDE-32E5-4FFD-8FA6-0CBA507FB201">The GodFather</option>
+                                <option value="B1AF7F47-C412-4793-B5F9-3241C735CBE5">The Green Mile</option>
+                                <option value="FED65408-DEFE-4015-80FA-3877CB5F460E">Star Wars</option>
+                                <option value="4BD10C57-4A6E-45A7-8969-43AB02F72FEF">The Shawshank Redemption</option>
+                                <option value="335BC6EB-6054-44D0-B482-61C7DCF13B07">The Lord of the Rings</option>
+                                <option value="613B1BE6-22C4-41DC-8EE5-975D9E879DF8">Pulp Fiction</option>
+                         </select>
+                    </div>
+                    <div class="field-caption">
+                        <label asp-for="Description">Текст отзыва </label>
+                        <input asp-for="Description"/>
+                        <span asp-validation-for="Description"></span>
+                    </div>
+                    <div class="field-caption">
+                        <input type="submit" value="Опубликовать" class="btn btn-primary"/>
+                    </div>
+             </form>
+         </div>
     </div>
 
 </body>

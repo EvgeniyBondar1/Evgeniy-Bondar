@@ -1,6 +1,7 @@
 ﻿using Cinema.DataAccess.DbPatterns.Interfaces;
 using Cinema.DataAccess.Entity;
 using Cinema.Services.Interface;
+using System.Collections.Generic;
 
 namespace Cinema.Services.Service
 {
@@ -13,8 +14,13 @@ namespace Cinema.Services.Service
         public async Task<Comment> GetComment(string description)
         {
             IList<Comment> comments = await UnitOfWork.Comments.GetAll();
-            return comments.First(a => a.Description == description);
+            return comments.FirstOrDefault(p => p.Description == description);
+        }
 
+        public async Task<List<Comment>> GetCommentsByFilmId(Guid id)
+        {
+            var comments = await UnitOfWork.Comments.GetAll();
+            return comments.Where(p => p.FilmId == id).ToList();
         }
 
         public async Task<Comment> CreateComment(Comment comment)
@@ -26,5 +32,6 @@ namespace Cinema.Services.Service
         {
             await UnitOfWork.Comments.Update(comment);
         }
+
     }
 }

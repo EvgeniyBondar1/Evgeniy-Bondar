@@ -15,7 +15,6 @@ namespace Cinema.Services.Service
         {
             IList<Film> films = await UnitOfWork.Films.GetAll();
             return films.First(a => a.Name == name);
-
         }
 
         public async Task<Film> CreateFilm(Film film)

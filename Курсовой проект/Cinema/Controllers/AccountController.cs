@@ -1,5 +1,6 @@
 ﻿using Cinema.DataAccess.Entity;
 using Cinema.Models;
+using Cinema.Models.ViewModels;
 using Cinema.Services.Interface;
 using Cinema.Settings;
 using Microsoft.AspNet.Identity;
@@ -8,18 +9,13 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Text;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using Cinema.DataAccess.Entity;
+
 
 namespace Cinema.Controllers
 {
-    [Authorize]
+
     public class AccountController : Controller
     {
-        private readonly Microsoft.AspNetCore.Identity.UserManager<Account> _manager;
-        private readonly SignInManager<Account> _signInManager;
         /*
          1. Доделать регистрацию
          2. Написать отзыв (чтобы отзыв добавлялся в базу)
@@ -32,13 +28,10 @@ namespace Cinema.Controllers
         private IAccountService accountService;
 
         //Получение доступа к методам таблицы - Пользователь
-        public AccountController(Microsoft.AspNetCore.Identity.UserManager<Account> userMgr, SignInManager<Account> signinMgr,IAccountService accountService)
+        public AccountController(IAccountService accountService)
         {
             this.accountService = accountService;
-            this._manager = userMgr;
-            this._signInManager = signinMgr;
             Config.UseBootstrap = true;
-
         }
 
         [AllowAnonymous]
@@ -49,33 +42,17 @@ namespace Cinema.Controllers
         }
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
-            if (ModelState.IsValid)
-            {
-                IdentityUser user = await _manager.FindByNameAsync(model.UserName);
-                if (user != null)
-                {
-                    await _signInManager.SignOutAsync();
-                    Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, false);
-                    if (result.Succeeded)
-                    {
-                        return Redirect(returnUrl ?? "/");
-                    }
-                }
-                ModelState.AddModelError(nameof(LoginViewModel.UserName), "Неверный логин или пароль");
-            }
-            return View(model);
+
+           
+          
+
+            return RedirectToAction("Privacy","Home");
         }
 
         [AllowAnonymous]
         [HttpGet]
-        public async Task<IActionResult> Comment()
-        {
-            return View();
-        }
-
-        [AllowAnonymous]
         public async Task<IActionResult> Registration()
         {
             return View();
@@ -91,26 +68,14 @@ namespace Cinema.Controllers
                 {
                     Id = Guid.NewGuid(),
                     Email = model.Email,
-                    FirstName = model.FirstName,
-                    LastName = model.LastName,
-                    PasswordHash = model.Password
+                    FullName = model.FirstName,
+                    PasswordHash = model.Password,
+                    LastName = "Bondar Evgeniy Igorevich",
+                    Phone = "+796217215537",
                 };
 
-                var result = await _manager.CreateAsync(account, model.Password);
-                if (result.Succeeded)
-                {
-                    // установка куки
-                    await _signInManager.SignInAsync(account, false);
-                    return RedirectToAction("Privacy", "Home");
-                }
-                else
-                {
-                    foreach (var error in result.Errors)
-                    {
-                        ModelState.AddModelError(string.Empty, error.Description);
-                    }
-                }
-
+                await accountService.CreateAccount(account);
+               
             }
             return View(model);
         }
